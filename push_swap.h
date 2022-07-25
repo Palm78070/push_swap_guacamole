@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 00:11:58 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/24 19:15:01 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/25 13:03:08 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ int	check_error(char **argv, int *stack_a);
 
 //utils2 => 5
 void	print_stack(int *stack, int len);
-//void	reverse_arr(t_swap *stack, int *stack_a, int len);
 void	reverse_arr(t_swap *stack);
 int	*intdup(int *arr, int len, int index);
-//int	*change_to_index(int *stack_a, int len);
 int	*change_to_index(t_swap *stack);
 int	set_mid(int len);
 

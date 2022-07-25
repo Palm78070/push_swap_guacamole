@@ -17,7 +17,7 @@ static int	is_largest(t_swap *stack, int num, int len)
 	return (0);
 }
 
-static int	is_least(t_swap *stack, int num, int len)
+/*static int	is_least(t_swap *stack, int num, int len)
 {
 	int	i;
 	int	least;
@@ -32,7 +32,7 @@ static int	is_least(t_swap *stack, int num, int len)
 	if (num == least)
 		return (1);
 	return (0);
-}
+}*/
 
 void	sort3(t_swap *stack)
 {
@@ -59,7 +59,7 @@ void	sort3(t_swap *stack)
 	}
 }
 
-static void	b_to_a(t_swap *stack)
+/*static void	b_to_a(t_swap *stack)
 {
 	int	top_a;
 	int	top_b;
@@ -92,18 +92,50 @@ static void	b_to_a(t_swap *stack)
 	}
 	else
 		pa(stack);
+}*/
+
+void	push_to_b(t_swap *stack, int num)
+{
+	int	index;
+
+	index = stack->len_a - 1;
+	while (index >= 0 && stack->a[index] != num)
+		--index;
+	if (index > 1)
+	{
+		while (stack->a[stack->len_a - 1] != num)
+			rotate(stack, 'a');
+	}
+	else if (index == 1 || index == 0)
+	{
+		while (stack->a[stack->len_a - 1] != num)
+			rev_rotate(stack, 'a');
+	}
+	pb(stack);
 }
 
 void	sort5(t_swap *stack)
 {
-	if (is_least(stack, stack->a[0], 5))
+	/*if (is_least(stack, stack->a[0], 5))
 		rev_rotate(stack, 'a');
 	else if (is_largest(stack, stack->a[4], 5))
-		rotate(stack, 'a');
-	pb(stack);
-	pb(stack);
-	check_stack_b(stack);
+		rotate(stack, 'a');*/
+	//pb(stack);
+	//pb(stack);
+	/*check_stack_b(stack);
 	sort3(stack);
 	while (stack->len_b != 0)
-		b_to_a(stack);
+		b_to_a(stack);*/
+	stack->s = intdup(stack->a, stack->len_a, 0);
+	merge_sort(stack->s, stack->len_s);
+	push_to_b(stack, stack->s[0]);
+	push_to_b(stack, stack->s[1]);
+	sort3(stack);
+	while (stack->len_b != 0)
+		pa(stack);
+	print_stack(stack->s, stack->len_s);
+	printf("\n");
+	print_stack(stack->a, stack->len_a);
+	printf("\n");
+	//print_stack(stack->b, stack->len_b);
 }

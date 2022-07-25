@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:45:43 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/18 10:27:53 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/25 12:10:21 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,6 @@ void	use_above_b(t_swap *stack, int index)
 	}
 	if (is_insort(stack2[0], index, stack, 'a'))
 		swap(stack, 'b');
-	/*else if (is_insort(stack2[top], index, stack, 'b'))
-	{
-		if (is_insort(stack2[1], index, stack, 'b'))
-		{
-			rev_rotate(stack, 'b');
-			swap(stack, 'b');
-			rotate(stack, 'b');
-			rotate(stack, 'b');
-		}
-	}*/
 	else
 		rotate(stack, 'b');
 }
