@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:25:23 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/24 23:13:34 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/25 11:41:53 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ int	main(int argc, char **argv)
 			sort3(stack);
 		else
 			sort5(stack);
-		print_stack(stack->a, stack->len_a);
+		//print_stack(stack->a, stack->len_a);
 		return (1);
 	}
 	stack->a = change_to_index(stack);
