@@ -27,7 +27,7 @@ norminette:
 	norminette -R CheckForbiddenHeader *.h *.c
 
 clean:
-	@make clean -C ./libft
+	@make fclean -C ./libft
 	rm -rf *.dSYM $(NAME)
 
 fclean: clean
