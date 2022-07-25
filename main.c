@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:25:23 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/25 13:02:26 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/07/25 14:58:20 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,13 @@ void	stack_b_operation(t_swap *stack, int index, int largest)
 	{
 		if (stack->b[stack->above_i] > stack->b[stack->below_i])
 			use_above(stack, index, 'b');
-			//use_above_b(stack, index);
-			//use_above(stack, index, 'b');
 		else
 			use_below(stack, index, 'b');
-			//use_below_b(stack, index);
-			//use_below(stack, index, 'b');
 	}
 	else if ((above > below && below != -1) || above == -1)
 		use_below(stack, index, 'b');
-		//use_below_b(stack, index);
-		//use_below(stack, index, 'b');
 	else
 		use_above(stack, index, 'b');
-		//use_above_b(stack, index);
-		//use_above(stack, index, 'b');
 	pa(stack);
 }
 
@@ -139,7 +131,12 @@ int	main(int argc, char **argv)
 
 	stack = (t_swap *)malloc(sizeof(t_swap));
 	stack_init(stack, argc - 1);
-	if (check_error(argv, stack->a) || argc <= 1)
+	if (argc <= 1)
+	{
+		printf("\n");
+		exit(1);
+	}
+	if (check_error(argv, stack->a))
 	{
 		ft_putstr_fd("Error\n", 2);
 		free_all(stack);
@@ -152,22 +149,23 @@ int	main(int argc, char **argv)
 			sort3(stack);
 		else
 			sort5(stack);
-		//print_stack(stack->a, stack->len_a);
 		return (1);
 	}
 	stack->a = change_to_index(stack);
 	reverse_arr(stack);
-	send_to_b(stack, 5);
-	send_to_a(stack, 5);
+	if (argc == 101)
+	{
+		send_to_b(stack, 5);
+		send_to_a(stack, 5);
+	}
+	if (argc == 501)
+	{
+		send_to_b(stack, 10);
+		send_to_a(stack, 10);
+	}
 	//print_stack(stack->a, stack->len_a);
 	//printf("\n");
 	//print_stack(stack->b, stack->len_b);
-	//printf("instruct is %i\n", stack->instruct);
-	//printf("len_ch is %i\n", stack->len_ch);
-	//printf("len_b is %i\n", stack->len_b);
-	//stack->len_ch = 20; //modify
-	//printf("same_part is %i\n", same_part(4, 7, stack));
-	//printf("is_insort is %i\n", is_insort(5, 0, stack, 'b'));
 	free_all(stack);
 	return (0);
 }
