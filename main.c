@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:25:23 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/25 21:49:07 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/26 12:22:46 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ int	main(int argc, char **argv)
 
 	stack = (t_swap *)malloc(sizeof(t_swap));
 	stack_init(stack, argc - 1);
+	printf("9 + 1 is %i\n", ft_atoi("-+42"));
 	if (argc <= 1)
 		exit(1);
 	if (check_error(argv, stack->a))
