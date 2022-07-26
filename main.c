@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:25:23 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/25 14:58:20 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/07/25 21:49:07 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,10 +132,7 @@ int	main(int argc, char **argv)
 	stack = (t_swap *)malloc(sizeof(t_swap));
 	stack_init(stack, argc - 1);
 	if (argc <= 1)
-	{
-		printf("\n");
 		exit(1);
-	}
 	if (check_error(argv, stack->a))
 	{
 		ft_putstr_fd("Error\n", 2);
