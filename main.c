@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:25:23 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/26 13:18:36 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/07/29 16:19:54 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	free_all(t_swap *stack)
 	free(stack);
 }
 
-void	stack_init(t_swap *stack, int len)
+/*void	stack_init(t_swap *stack, int len)
 {
 	stack->len_a = len;
 	stack->len_b = 0;
@@ -28,6 +28,22 @@ void	stack_init(t_swap *stack, int len)
 	stack->len_ch = 0;
 	stack->a = (int *)malloc(stack->len_a * sizeof(int));
 	stack->b = (int *)malloc(stack->len_a * sizeof(int));
+	stack->s = NULL;
+	stack->mid_sort = set_mid(stack->len_s);
+	stack->mid_stack = 0;
+	stack->above_i = 0;
+	stack->below_i = 0;
+	stack->instruct = 0;
+}*/
+
+void	stack_init(t_swap *stack)
+{
+	stack->len_a = 0;
+	stack->len_b = 0;
+	stack->len_s = 0;
+	stack->len_ch = 0;
+	stack->a = NULL;
+	stack->b = NULL;
 	stack->s = NULL;
 	stack->mid_sort = set_mid(stack->len_s);
 	stack->mid_stack = 0;
@@ -94,7 +110,9 @@ void	send_to_b(t_swap *stack, int chunk)
 	top = (i + stack->len_ch) - 1;
 	//if (count == chunk)
 	//if (count == 2)
-	if (count == chunk)
+	/*if (count == chunk)
+		return ;*/
+	if (stack->len_a == 0)
 		return ;
 	while (i <= top)
 	{
@@ -130,40 +148,41 @@ int	main(int argc, char **argv)
 	t_swap	*stack;
 
 	stack = (t_swap *)malloc(sizeof(t_swap));
-	stack_init(stack, argc - 1);
-	printf("9 + 1 is %i\n", ft_atoi("-+42"));
+	stack_init(stack);
 	if (argc <= 1)
 		exit(1);
-	if (check_error(argv, stack->a))
+	stack->a = format_input(stack, argv);
+	if (stack->a == NULL)
 	{
-		ft_putstr_fd("Error\n", 2);
 		free_all(stack);
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
-	if (argc == 4 || argc == 6)
+	if (stack->len_a == 3 || stack->len_a == 5)
 	{
 		reverse_arr(stack);
-		if (argc == 4)
+		if (stack->len_a == 3)
 			sort3(stack);
 		else
 			sort5(stack);
-		return (1);
+		return (0);
 	}
 	stack->a = change_to_index(stack);
 	reverse_arr(stack);
-	if (argc == 101)
+	if (stack->len_a == 100)
 	{
-		send_to_b(stack, 5);
-		send_to_a(stack, 5);
+		send_to_b(stack, 6);
+		send_to_a(stack, 6);
 	}
 	if (argc == 501)
 	{
-		send_to_b(stack, 10);
-		send_to_a(stack, 10);
+		send_to_b(stack, 11);
+		send_to_a(stack, 11);
 	}
-	//print_stack(stack->a, stack->len_a);
-	//printf("\n");
-	//print_stack(stack->b, stack->len_b);
+	/*print_stack(stack->a, stack->len_a);
+	printf("\n");
+	print_stack(stack->b, stack->len_b);
+	printf("instruct is %i\n", stack->instruct);*/
 	free_all(stack);
 	return (0);
 }

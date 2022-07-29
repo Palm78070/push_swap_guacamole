@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 00:54:27 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/25 13:38:11 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:55:27 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,6 @@ void	reverse_arr(t_swap *stack)
 		++i;
 	}
 }
-
-/*void	reverse_arr(t_swap *stack, int *stack_a, int len)
-{
-	int	tmp;
-	int	i;
-
-	tmp = stack_a[len - 1];
-	i = 0;
-	while (i < len / 2)
-	{
-		tmp = stack_a[i];
-		stack_a[i] = stack_a[len - i - 1];
-		stack_a[len - i - 1] = tmp;
-		++i;
-	}
-	stack->mid_s = stack->len_a / 2;
-}*/
 
 int	*intdup(int *arr, int len, int index)
 {

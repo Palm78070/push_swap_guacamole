@@ -6,27 +6,11 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 20:08:40 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/26 14:00:09 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:12:12 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	is_instr(char c, char *s)
-{
-	while (*s)
-	{
-		if (c == *s)
-			return (1);
-		++s;
-	}
-	return (0);
-}
-
-static int	ft_isspace(char c)
-{
-	return (is_instr(c, " \t\r\n\v\f"));
-}
 
 static int	get_sign(const char *str)
 {
@@ -47,7 +31,7 @@ static int	get_sign(const char *str)
 		return (1);
 }
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	unsigned long long	result;
 	int					sign;
@@ -67,5 +51,5 @@ int	ft_atoi(const char *str)
 			return (0);
 		++str;
 	}
-	return ((int)(result * sign));
+	return ((result * sign));
 }

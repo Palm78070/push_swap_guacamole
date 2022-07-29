@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 22:57:55 by rthammat          #+#    #+#             */
-/*   Updated: 2022/06/24 14:53:10 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:14:12 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int				ft_isalnum(int c);
 int				ft_isascii(int c);
 int				ft_isprint(int c);
 int				ft_str_isnum(char *s);
+int				ft_isspace(char c);
 //Upper Lower alpha
 int				ft_toupper(int c);
 int				ft_tolower(int c);
@@ -43,8 +44,8 @@ void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
-//asii vd integer
-int				ft_atoi(const char *str);
+//asii vs integer
+long long				ft_atoi(const char *str);
 char			*ft_itoa(int n);
 //malloc
 void			*ft_calloc(size_t count, size_t size);
@@ -78,5 +79,7 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void*));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
+//free
+void			free_double(char **s);
 
 #endif

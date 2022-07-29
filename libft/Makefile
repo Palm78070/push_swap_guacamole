@@ -38,6 +38,8 @@ SRCS:= ft_isalpha.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
 	ft_str_isnum.c \
+	ft_isspace.c \
+	free_double.c \
 
 BONUS:= ft_lstnew.c \
 	ft_lstadd_front.c \

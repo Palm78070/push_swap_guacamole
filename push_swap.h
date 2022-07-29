@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 00:11:58 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/26 12:43:24 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/07/28 18:50:30 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct p_swap
 } t_swap;
 
 //utils => 5
-int	check_error(char **argv, int *stack_a);
+int	*format_input(t_swap *stack, char **argv);
 
 //utils2 => 5
 void	print_stack(int *stack, int len);

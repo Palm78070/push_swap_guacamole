@@ -6,93 +6,116 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 15:27:50 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/26 12:58:34 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/07/28 20:07:40 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_instr(char c, char *s)
-{
-	while (*s)
-	{
-		if (c == *s)
-			return (1);
-		++s;
-	}
-	return (0);
-}
-
-static int	ft_isspace(char c)
-{
-	return (is_instr(c, " \t\r\n\v\f"));
-}
-
-static int	check_edge(const char *str)
-{
-	long long	result;
-	int			sign;
-
-	result = 0;
-	sign = 1;
-	while (*str && ft_isspace(*str))
-		++str;
-	if (*str != '\0' && (*str == '+' || *str == '-'))
-	{
-		if (*str == '-')
-			sign = -1;
-		++str;
-	}
-	while (*str && ft_isdigit(*str))
-	{
-		result = (result * 10) + (*str - '0');
-		if (result > INT_MAX && sign > 0)
-			return (1);
-		else if ((result * sign) < INT_MIN)
-			return (1);
-		++str;
-	}
-	return (0);
-}
-
-static int	check_dup(char **argv, int index, int num)
+static int	check_dup(t_swap *stack, int index, int num)
 {
 	int	i;
 
-	i = 0;
-	while (argv[++i])
+	i = -1;
+	while (++i < stack->len_a)
 	{
 		if (i == index)
 			++i;
-		if (argv[i] == NULL)
-			break ;
-		if (num == ft_atoi(argv[i]))
+		if (num == stack->a[i] && i < stack->len_a)
+		{
+			free(stack->a);
 			return (0);
+		}
 	}
 	return (1);
 }
 
-int	check_error(char **argv, int *stack_a)
+static int	check_str_isnum(t_swap *stack, char **s)
 {
-	int		i;
-	long	num;
+	int	i;
+
+	i = -1;
+	while (s[++i] != NULL)
+	{
+		if (!ft_str_isnum(s[i]))
+		{
+			free(stack->a);
+			free_double(s);
+			return (0);
+		}
+	}
+	return (1);
+}
+
+static void	insert_num(t_swap *stack, int n)
+{
+	int	i;
+	int	*tmp;
+
+	stack->len_a += 1;
+	i = -1;
+	tmp = stack->a;
+	stack->a = (int *)malloc(stack->len_a * sizeof(int));
+	if (!stack->a)
+	{
+		if (tmp)
+			free(tmp);
+		return ;
+	}
+	while (++i < stack->len_a - 1)
+		stack->a[i] = tmp[i];
+	stack->a[i] = n;
+	if (tmp)
+		free(tmp);
+}
+
+static int	check_and_insert(t_swap *stack, char **s)
+{
+	int	i;
+	long long	n;
+
+	i = -1;
+	n = 0;
+	while (s[++i] != NULL)
+	{
+		n = ft_atoi(s[i]);
+		if (n > INT_MAX || n < INT_MIN)
+		{
+			if (stack->a)
+				free(stack->a);
+			free_double(s);
+			return (0);
+		}
+		insert_num(stack, (int)n);
+	}
+	free_double(s);
+	return (1);
+}
+
+int	*format_input(t_swap *stack, char **argv)
+{
+	char	**s;
+	int	i;
 
 	i = 0;
-	num = 0;
+	s = NULL;
 	while (argv[++i])
 	{
-		num = ft_atoi(argv[i]);
-		if (!ft_str_isnum(argv[i]))
-			return (1);
-		if (check_edge(argv[i]))
-			return (1);
+		s = ft_split(argv[i], ' ');
+		if (!check_str_isnum(stack, s) || !check_and_insert(stack, s))
+			return (NULL);
 	}
-	i = 0;
-	while (argv[++i])
+	i = -1;
+	while (++i < stack->len_a)
 	{
-		stack_a[i - 1] = ft_atoi(argv[i]);
-		if (!(check_dup(argv, i, stack_a[i - 1])))
-			return (1);
+		if (!check_dup(stack, i, stack->a[i]))
+			return (NULL);
 	}
-	return (0);
+	if (stack->a != NULL)
+	{
+		stack->len_s = stack->len_a;
+		stack->mid_sort = set_mid(stack->len_s);
+		stack->b = (int *)malloc(stack->len_a * sizeof(int));
+	}
+	return (stack->a);
 }
