@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 00:11:58 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/28 18:50:30 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/29 19:02:35 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct p_swap
 	int	above_i;
 	int	below_i;
 	int	instruct;
+	int	chunk;
 } t_swap;
 
 //utils => 5

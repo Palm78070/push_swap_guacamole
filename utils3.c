@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:35:51 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/16 15:06:56 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/29 18:23:49 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	cal_above(t_swap *stack, int index, char c)
 	if (!stack2)
 		return (-1);
 	count_step = 0;
-	if (c == 'b') //modify
-		--top; //modify
+	//if (c == 'b') //modify
+	//	--top; //modify
 	while (top >= stack->mid_stack && !is_insort(stack2[top], index, stack, c))
 	{
 		--top;

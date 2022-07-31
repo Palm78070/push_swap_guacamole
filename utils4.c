@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:34:02 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/23 12:32:59 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/29 20:49:08 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,18 @@ int	is_insort(int num, int index, t_swap *stack, char c)
 {
 	int	i;
 	int	last;
+	int	chunk; ///////////////mo
+	int	rem; ///////////////mo
 
+	(void)c;
 	i = index - 1;
-	if (c == 'b')
-		last = index + ((stack->len_ch / 4) - 1); //modify
+	chunk = stack->chunk;
+	rem = stack->len_s % chunk;
+	//if (c == 'b')
+	//	last = index + (stack->chunk - 1); //modify
+		//last = index + ((stack->len_ch / 4) - 1); //modify
+	if (stack->len_a <= rem && rem != 0)
+		last = index + (rem - 1);
 	else
 		last = index + (stack->len_ch - 1); //modify
 	while (++i <= last)

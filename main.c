@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:25:23 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/29 16:19:54 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/29 21:00:29 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	stack_init(t_swap *stack)
 	stack->above_i = 0;
 	stack->below_i = 0;
 	stack->instruct = 0;
+	stack->chunk = 0;
 }
 
 void	stack_b_operation(t_swap *stack, int index, int largest)
@@ -102,16 +103,21 @@ void	stack_a_operation(t_swap *stack, int index)
 void	send_to_b(t_swap *stack, int chunk)
 {
 	static int	i = 0;
-	static int	count = 0;
+	//static int	count = 0;
 	static int	start = 0;
 	int	top;
 
 	stack->len_ch = stack->len_s / chunk;
-	top = (i + stack->len_ch) - 1;
+	stack->chunk = chunk;
+	if (stack->len_a == stack->len_s % chunk)
+		top = i + (stack->len_a - 1);
+	else
+		top = (i + stack->len_ch) - 1;
 	//if (count == chunk)
 	//if (count == 2)
 	/*if (count == chunk)
 		return ;*/
+	//if (stack->len_a == stack->len_s % chunk)
 	if (stack->len_a == 0)
 		return ;
 	while (i <= top)
@@ -121,7 +127,7 @@ void	send_to_b(t_swap *stack, int chunk)
 		++i;
 	}
 	start += stack->len_ch;
-	++count;
+	//++count;
 	send_to_b(stack, chunk);
 }
 
@@ -174,15 +180,17 @@ int	main(int argc, char **argv)
 		send_to_b(stack, 6);
 		send_to_a(stack, 6);
 	}
-	if (argc == 501)
+	if (stack->len_a == 500)
 	{
-		send_to_b(stack, 11);
-		send_to_a(stack, 11);
+		send_to_b(stack, 15);
+		send_to_a(stack, 15);
 	}
 	/*print_stack(stack->a, stack->len_a);
 	printf("\n");
 	print_stack(stack->b, stack->len_b);
-	printf("instruct is %i\n", stack->instruct);*/
+	printf("instruct is %i\n", stack->instruct);
+	printf("len_a is %i\n", stack->len_a);
+	printf("len_b is %i\n", stack->len_b);*/
 	free_all(stack);
 	return (0);
 }
