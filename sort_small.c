@@ -1,31 +1,14 @@
 #include "push_swap.h"
 
-static int	is_largest(t_swap *stack, int num, int len)
+static void	sort3(t_swap *stack)
 {
-	int	i;
-	int	largest;
-
-	i = -1;
-	largest = stack->a[0];
-	while(++i < len)
-	{
-		if (stack->a[i] > largest)
-			largest = stack->a[i];
-	}
-	if (num == largest)
-		return (1);
-	return (0);
-}
-
-void	sort3(t_swap *stack)
-{
-	if (is_largest(stack, stack->a[2], 3))
+	if (is_largest_num(stack->a, stack->a[2], 3))
 	{
 		rotate(stack, 'a');
 		if (stack->a[2] > stack->a[1])
 			swap(stack, 'a');
 	}
-	else if (is_largest(stack, stack->a[1], 3))
+	else if (is_largest_num(stack->a, stack->a[1], 3))
 	{
 		if (stack->a[2] > stack->a[0])
 			rev_rotate(stack, 'a');
@@ -35,14 +18,14 @@ void	sort3(t_swap *stack)
 			swap(stack, 'a');
 		}
 	}
-	else if (is_largest(stack, stack->a[0], 3))
+	else if (is_largest_num(stack->a, stack->a[0], 3))
 	{
 		if (stack->a[2] > stack->a[1])
 			swap(stack, 'a');
 	}
 }
 
-void	push_to_b(t_swap *stack, int num)
+static void	push_to_b(t_swap *stack, int num)
 {
 	int	index;
 
@@ -62,13 +45,31 @@ void	push_to_b(t_swap *stack, int num)
 	pb(stack);
 }
 
-void	sort5(t_swap *stack)
+static void	sort5(t_swap *stack)
 {
+	int	i;
+
+	i = -1;
 	stack->s = intdup(stack->a, stack->len_a, 0);
 	merge_sort(stack->s, stack->len_s);
-	push_to_b(stack, stack->s[0]);
-	push_to_b(stack, stack->s[1]);
+	while (stack->len_a != 3)
+		push_to_b(stack, stack->s[++i]);
 	sort3(stack);
 	while (stack->len_b != 0)
 		pa(stack);
+}
+
+void	sort_small(t_swap *stack)
+{
+	int	len_a;
+
+	len_a = stack->len_a;
+	if (len_a == 1 || stack_is_sort(stack->a, stack->len_a))
+		return ;
+	else if (len_a == 2 && stack->a[1] > stack->a[0])
+		swap(stack, 'a');
+	else if (len_a == 3)
+		sort3(stack);
+	else if (len_a >= 4)
+		sort5(stack);
 }

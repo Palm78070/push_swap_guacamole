@@ -1,7 +1,9 @@
 NAME:= libft.a
 
 CC:= gcc
-CFLAGS:= -Wall -Werror -Wextra
+CFLAGS:= -Wall -Werror -Wextra -D
+
+BUFF:= BUFFER_SIZE=42
 
 SRCS:= ft_isalpha.c \
 	ft_isdigit.c \
@@ -40,6 +42,9 @@ SRCS:= ft_isalpha.c \
 	ft_str_isnum.c \
 	ft_isspace.c \
 	free_double.c \
+	is_largest_num.c \
+	get_next_line_utils.c \
+	get_next_line.c \
 
 BONUS:= ft_lstnew.c \
 	ft_lstadd_front.c \
@@ -62,7 +67,7 @@ $(NAME): $(OBJS)
 	ar -rcs $(NAME) $^
 
 $(libft/OBJS)%.o: $(libft/SRCS)%.c
-	$(CC) $(CFLAGS) -c $^ -o $@	
+	$(CC) $(CFLAGS) $(BUFF) -c $^ -o $@	
 
 bonus: $(BONUS)
 	$(CC) $(CFLAGS) -c $^	

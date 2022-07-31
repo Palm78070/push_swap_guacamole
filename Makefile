@@ -14,6 +14,8 @@ SRCS = main.c \
 	merge_sort.c \
 	instruct.c \
 	sort_small.c \
+	sort_big.c \
+	stack_operation.c \
 
 all: $(NAME)
 

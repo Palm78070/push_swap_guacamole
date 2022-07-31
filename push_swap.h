@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 00:11:58 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/29 19:02:35 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/31 20:43:10 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include "get_next_line.h"
 
 typedef struct p_swap
 {
@@ -54,6 +55,7 @@ void	use_below(t_swap *stack, int index, char c);
 
 //utils4 => 4
 int	is_insort(int num, int index, t_swap *stack, char c);
+int	stack_is_sort(int *stack, int len);
 int	same_part(int num1, int num2, t_swap *stack);
 void	check_stack_b(t_swap *stack);
 
@@ -66,15 +68,23 @@ void	use_below_b(t_swap *stack, int index);
 //mergesort
 void	merge_sort(int *arr, int len);
 
-//instruct
+//instruct => 5
 void	swap(t_swap *stack, char c);
 void	rotate(t_swap *stack, char c);
 void	rev_rotate(t_swap *stack, char c);
 void	pa(t_swap *stack);
 void	pb(t_swap *stack);
 
-//sort_small
-void	sort3(t_swap *stack);
-void	sort5(t_swap *stack);
+//sort_small => 4
+void	sort_small(t_swap *stack);
+
+//sort_big => 1
+void	sort_big(t_swap *stack);
+
+//stack_operation => 4
+void	stack_a_operation(t_swap *stack, int index);
+void	stack_b_operation(t_swap *stack, int index, int largest);
+void	send_to_b(t_swap *stack, int chunk);
+void	send_to_a(t_swap *stack, int chunk);
 
 #endif

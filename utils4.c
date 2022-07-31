@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:34:02 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/29 20:49:08 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/31 18:25:08 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,27 @@ int	is_insort(int num, int index, t_swap *stack, char c)
 			return (1);
 	}
 	return (0);
+}
+
+int	stack_is_sort(int *stack, int len)
+{
+	int	i;
+	int	j;
+
+	i = len - 1;
+	j = i;
+	while (i >= 1)
+	{
+		j = i - 1;
+		while (j >= 0)
+		{
+			if (stack[i] > stack[j])
+				return (0);
+			--j;
+		}
+		--i;
+	}
+	return (1);
 }
 
 int	same_part(int num1, int num2, t_swap *stack)

@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 22:57:55 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/27 18:14:12 by rath             ###   ########.fr       */
+/*   Updated: 2022/07/31 20:13:43 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int				ft_isascii(int c);
 int				ft_isprint(int c);
 int				ft_str_isnum(char *s);
 int				ft_isspace(char c);
+int				is_largest_num(int *stack, int num, int len);
 //Upper Lower alpha
 int				ft_toupper(int c);
 int				ft_tolower(int c);
