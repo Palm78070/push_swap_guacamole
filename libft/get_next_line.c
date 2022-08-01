@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:20:46 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/31 20:36:56 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:28:59 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_nextline(char *buffer, size_t l_len)
 	}
 	if (buffer[l_len] == '\n')
 		l_len += 1;
-	line = ft_substr(buffer, l_len, ft_strxlen(&buffer[l_len], '\n'));
+	line = ft_substr(buffer, l_len, ft_strxlen(&buffer[l_len], '\0'));
 	free(buffer);
 	return (line);
 }

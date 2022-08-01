@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:25:23 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/31 20:43:05 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/01 17:41:18 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,5 @@ int	main(int argc, char **argv)
 	printf("len_a is %i\n", stack->len_a);
 	printf("len_b is %i\n", stack->len_b);*/
 	free_all(stack);
-
-
-	//char *str = get_next_line(STDIN_FILENO);
-	char *str;
-	while ((str = get_next_line(STDIN_FILENO)) != NULL)
-	{
-		printf("%s\n", str);
-		//str = get_next_line(STDIN_FILENO);
-	}
-	free(str);
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 18:56:39 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/31 20:32:41 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:29:43 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*char	*ft_strjoin(char const *s1, char const *s2)
+/*char	*ft_strjoin2(char const *s1, char const *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -33,7 +33,7 @@
 	return (res);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr2(const char *s, int c)
 {
 	int	i;
 
@@ -60,7 +60,7 @@ char	*ft_strchr(const char *s, int c)
 	return ((char *)s);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc2(size_t count, size_t size)
 {
 	char	*res;
 	size_t	i;
@@ -89,7 +89,7 @@ size_t	ft_strxlen(const char *s, char delim)
 	return (i);
 }
 
-/*char	*ft_substr(char const *s, unsigned int start, size_t len)
+/*char	*ft_substr2(char const *s, unsigned int start, size_t len)
 {
 	char	*p;
 	size_t	i;
@@ -102,7 +102,7 @@ size_t	ft_strxlen(const char *s, char delim)
 		len = 0;
 	else if (len > ft_strxlen(&s[start], '\0'))
 		len = ft_strxlen(&s[start], '\0');
-	p = ft_calloc(len + 1, sizeof(char));
+	p = ft_calloc2(len + 1, sizeof(char));
 	if (!p)
 		return (NULL);
 	while (++i < len)
