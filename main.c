@@ -6,13 +6,13 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:25:23 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/01 17:41:18 by rath             ###   ########.fr       */
+/*   Updated: 2022/08/01 18:40:44 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_all(t_swap *stack)
+static void	free_all(t_swap *stack)
 {
 	free(stack->a);
 	free(stack->b);
@@ -20,7 +20,7 @@ void	free_all(t_swap *stack)
 	free(stack);
 }
 
-void	stack_init(t_swap *stack)
+static void	stack_init(t_swap *stack)
 {
 	stack->len_a = 0;
 	stack->len_b = 0;
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 	if (stack->a == NULL)
 	{
 		free_all(stack);
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error\n", STDERR_FILENO);
 		exit(1);
 	}
 	if (stack->len_a >= 0 && stack->len_a < 100)

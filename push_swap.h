@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 00:11:58 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/31 20:43:10 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/01 20:41:28 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,17 @@ void	rotate(t_swap *stack, char c);
 void	rev_rotate(t_swap *stack, char c);
 void	pa(t_swap *stack);
 void	pb(t_swap *stack);
+
+//instruct_checker => 5
+void	swap2(t_swap *stack, char c);
+void	rotate2(t_swap *stack, char c);
+void	rev_rotate2(t_swap *stack, char c);
+void	pa2(t_swap *stack);
+void	pb2(t_swap *stack);
+
+//checker_utils => 2
+int	match_str(char *s, char *str);
+void	use_instruct(t_swap *stack, char *s);
 
 //sort_small => 4
 void	sort_small(t_swap *stack);
