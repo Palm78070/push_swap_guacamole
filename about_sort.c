@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:34:02 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/31 18:25:08 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/01 21:01:42 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	stack_is_sort(int *stack, int len)
 	return (1);
 }
 
-int	same_part(int num1, int num2, t_swap *stack)
+/*int	same_part(int num1, int num2, t_swap *stack)
 {
 	int	index1;
 	int	index2;
@@ -76,7 +76,7 @@ int	same_part(int num1, int num2, t_swap *stack)
 		return (1);
 	else
 		return (0);
-}
+}*/
 
 /*static int	cal_insert_b(t_swap *stack, int num)
 {
@@ -146,7 +146,7 @@ static void	insert_to_b(t_swap *stack)
 	}
 }*/
 
-void	check_stack_b(t_swap *stack)
+/*void	check_stack_b(t_swap *stack)
 {
 	int	top;
 	//static int	i = 0; //modify
@@ -157,7 +157,7 @@ void	check_stack_b(t_swap *stack)
 	top = stack->len_b - 1;
 	if (top == 0)
 		return ;
-	/*if (same_part(stack->b[top], stack->b[top - 1], stack))
+	*if (same_part(stack->b[top], stack->b[top - 1], stack))
 	{
 		if (stack->b[top] < stack->b[top - 1])
 			swap(stack, 'b');
@@ -173,11 +173,11 @@ void	check_stack_b(t_swap *stack)
 			rotate(stack, 'b');
 		}
 		rotate(stack, 'b');
-	}*/
+	}
 	if (stack->b[top] == stack->b[0] + 1)
 		rotate(stack, 'b');
 	if (stack->b[top] < stack->b[0])
 		rotate(stack, 'b');
 	if (stack->b[top] < stack->b[top - 1])
 		swap(stack, 'b');
-}
+}*/

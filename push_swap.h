@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 00:11:58 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/01 20:41:28 by rath             ###   ########.fr       */
+/*   Updated: 2022/08/01 21:09:16 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,37 +33,35 @@ typedef struct p_swap
 	int	chunk;
 } t_swap;
 
-//utils => 5
+//check_input.c => 5
 int	*format_input(t_swap *stack, char **argv);
 
-//utils2 => 5
+//stack_utils.c => 5
 void	print_stack(int *stack, int len);
 void	reverse_arr(t_swap *stack);
 int	*intdup(int *arr, int len, int index);
 int	*change_to_index(t_swap *stack);
 int	set_mid(int len);
 
-//utils3 => 5
+//above_or_below.c => 5
 int	*choose_stack(t_swap *stack, int *top, char c);
 int	cal_above(t_swap *stack, int index, char c);
 int	cal_below(t_swap *stack, int index, char c);
 void	use_above(t_swap *stack, int index, char c);
 void	use_below(t_swap *stack, int index, char c);
-//int	*choose_stack(t_swap *stack, int *top, char c);
-//int	is_insort(int num, int index, t_swap *stack, char c); //mv
-//void	check_stack_b(t_swap *stack); //mv
 
-//utils4 => 4
+//about_sort.c
 int	is_insort(int num, int index, t_swap *stack, char c);
 int	stack_is_sort(int *stack, int len);
-int	same_part(int num1, int num2, t_swap *stack);
-void	check_stack_b(t_swap *stack);
+//int	same_part(int num1, int num2, t_swap *stack);
+//void	check_stack_b(t_swap *stack);
 
-//utils5 => 2
+//stack_b_utils.c => 2
 int	cal_above_b(t_swap *stack, int largest);
 int	cal_below_b(t_swap *stack, int largest);
-void	use_above_b(t_swap *stack, int index);
-void	use_below_b(t_swap *stack, int index);
+void	check_stack_b(t_swap *stack);
+//void	use_above_b(t_swap *stack, int index);
+//void	use_below_b(t_swap *stack, int index);
 
 //mergesort
 void	merge_sort(int *arr, int len);

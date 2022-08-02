@@ -7,21 +7,21 @@ LIB_I = ./libft/
 CFLAGS = -Wall -Werror -Wextra 
 
 SRCS = main.c \
-	utils.c \
-	utils2.c \
-	utils3.c \
-	utils4.c \
-	utils5.c \
+	check_input.c \
+	stack_utils.c \
+	above_or_below.c \
+	about_sort.c \
+	stack_b_utils.c \
 	merge_sort.c \
 	instruct.c \
 	sort_small.c \
 	sort_big.c \
 	stack_operation.c \
 
-SRCS_CHECKER = utils.c \
-		utils2.c \
-		utils3.c \
-		utils4.c \
+SRCS_CHECKER = check_input.c \
+		stack_utils.c \
+		above_or_below.c \
+		about_sort.c \
 		merge_sort.c \
 		instruct.c \
 		instruct_checker.c \

@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:45:43 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/25 12:10:21 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/01 21:00:19 by rath             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	cal_below_b(t_swap *stack, int largest)
 	return (count_step + 1);
 }
 
-void	use_above_b(t_swap *stack, int index)
+/*void	use_above_b(t_swap *stack, int index)
 {
 	int	*stack2;
 	int	top;
@@ -88,4 +88,19 @@ void	use_below_b(t_swap *stack, int index)
 		--i;
 	}
 	rev_rotate(stack, 'b'); //original
+}*/
+
+void	check_stack_b(t_swap *stack)
+{
+	int	top;
+
+	top = stack->len_b - 1;
+	if (top == 0)
+		return ;
+	if (stack->b[top] == stack->b[0] + 1)
+		rotate(stack, 'b');
+	if (stack->b[top] < stack->b[0])
+		rotate(stack, 'b');
+	if (stack->b[top] < stack->b[top - 1])
+		swap(stack, 'b');
 }
