@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:35:51 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/02 18:01:28 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/03 19:12:53 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ void	use_above(t_swap *stack, int index, char c)
 	i = stack->above_i;
 	if (i == top)
 	{
+		if (i == 0)
+			top = 1;
 		if (is_insort(stack2[top - 1], index, stack, c) && c == 'a')
 		{
 			if (stack2[top - 1] < stack2[top])

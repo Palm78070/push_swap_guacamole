@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:25:23 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/02 20:44:03 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/03 19:23:14 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	stack_init(t_swap *stack)
 	stack->len_s = 0;
 	stack->len_ch = 0;
 	stack->a = NULL;
-	stack->b = (int *)malloc(1 * sizeof(int));
+	stack->b = NULL;
 	stack->s = NULL;
 	stack->mid_sort = set_mid(stack->len_s);
 	stack->mid_stack = 0;
@@ -52,22 +52,12 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 		exit(1);
 	}
-	stack->b = (int *)malloc(stack->len_a * sizeof(int));////////////////////////mo
-	if (!stack->b)
-	{
-		free_all(stack);
-		ft_putstr_fd("Error\n", STDERR_FILENO);
-		exit(1);
-	}/////////////////////////////////////////////////////////////mo
 	if (stack->len_a >= 0 && stack->len_a < 100)
-	{
-		reverse_arr(stack);
 		sort_small(stack);
-	}
 	if (stack->len_a >= 100 || stack->len_a >= 500)
 	{
-		stack->a = change_to_index(stack);
-		reverse_arr(stack);
+		//stack->a = change_to_index(stack);
+		//reverse_arr(stack);
 		if (!stack_is_sort(stack->a, stack->len_a))
 			sort_big(stack);
 	}

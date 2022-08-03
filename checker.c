@@ -128,7 +128,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
-	print_stack(stack->a, stack->len_a); //mo
+	//print_stack(stack->a, stack->len_a); //mo
 	free_all(stack, s);
 	return (0);
 }

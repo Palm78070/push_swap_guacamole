@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 15:27:50 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/02 20:41:17 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/03 19:17:53 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,13 +120,13 @@ int	*format_input(t_swap *stack, char **argv)
 	{
 		stack->len_s = stack->len_a;
 		stack->mid_sort = set_mid(stack->len_s);
-		/*stack->b = (int *)malloc(stack->len_a * sizeof(int));
+		stack->b = (int *)malloc(stack->len_a * sizeof(int));
 		if (!stack->b) ///////////////////mo
 		{
 			if (stack->a)
 				free(stack->a);
 			return (NULL);
-		} //////////////////////////////////mo*/
+		} //////////////////////////////////mo
 	}
 	return (stack->a);
 }

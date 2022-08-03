@@ -64,6 +64,7 @@ void	sort_small(t_swap *stack)
 	int	len_a;
 
 	len_a = stack->len_a;
+	reverse_arr(stack);
 	if (len_a == 1 || stack_is_sort(stack->a, stack->len_a))
 		return ;
 	else if (len_a == 2 && stack->a[1] > stack->a[0])

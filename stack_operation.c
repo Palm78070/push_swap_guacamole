@@ -88,8 +88,8 @@ void	send_to_a(t_swap *stack, int chunk)
 		return ;
 	while (i >= floor)
 	{
-		printf("floor is %i\n", floor);
-		printf("i is %i\n", i);
+		//printf("floor is %i\n", floor);
+		//printf("i is %i\n", i);
 		stack_b_operation(stack, floor, stack->s[i]);
 		--i;
 	}
