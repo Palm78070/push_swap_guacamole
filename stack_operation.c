@@ -77,11 +77,19 @@ void	send_to_a(t_swap *stack, int chunk)
 
 	if (i == 0)
 		i = stack->len_s - 1;
-	floor = (i - stack->len_ch) + 1;
+	if (stack->len_b == stack->len_s % chunk) ///////////////mo
+	{
+		i = (stack->len_s % chunk) - 1;
+		floor = 0;
+	}/////////////////////////////////////mo
+	else //////////////////////mo
+		floor = (i - stack->len_ch) + 1;
 	if (stack->len_b == 0)
 		return ;
 	while (i >= floor)
 	{
+		printf("floor is %i\n", floor);
+		printf("i is %i\n", i);
 		stack_b_operation(stack, floor, stack->s[i]);
 		--i;
 	}

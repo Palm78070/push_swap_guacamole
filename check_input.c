@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 15:27:50 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/28 20:07:40 by rath             ###   ########.fr       */
+/*   Updated: 2022/08/02 20:41:17 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,19 @@ static void	insert_num(t_swap *stack, int n)
 
 	stack->len_a += 1;
 	i = -1;
-	tmp = stack->a;
-	stack->a = (int *)malloc(stack->len_a * sizeof(int));
+	//if (stack->a != NULL)//////////////////mo
+		tmp = stack->a;
+	//else
+	//	tmp = NULL;/////////////////mo
+	//stack->a = (int *)malloc(stack->len_a * sizeof(int));
+	stack->a = (int *)malloc((stack->len_a + 1) * sizeof(int)); ////add 1 more
 	if (!stack->a)
 	{
 		if (tmp)
 			free(tmp);
 		return ;
 	}
+	stack->a[stack->len_a] = 0; ///////mo
 	while (++i < stack->len_a - 1)
 		stack->a[i] = tmp[i];
 	stack->a[i] = n;
@@ -115,7 +120,13 @@ int	*format_input(t_swap *stack, char **argv)
 	{
 		stack->len_s = stack->len_a;
 		stack->mid_sort = set_mid(stack->len_s);
-		stack->b = (int *)malloc(stack->len_a * sizeof(int));
+		/*stack->b = (int *)malloc(stack->len_a * sizeof(int));
+		if (!stack->b) ///////////////////mo
+		{
+			if (stack->a)
+				free(stack->a);
+			return (NULL);
+		} //////////////////////////////////mo*/
 	}
 	return (stack->a);
 }

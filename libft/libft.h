@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 22:57:55 by rthammat          #+#    #+#             */
-/*   Updated: 2022/07/31 20:13:43 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/02 14:49:35 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 //asii vs integer
-long long				ft_atoi(const char *str);
+long long		ft_atoi(const char *str);
 char			*ft_itoa(int n);
 //malloc
 void			*ft_calloc(size_t count, size_t size);
