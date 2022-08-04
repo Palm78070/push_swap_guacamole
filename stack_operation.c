@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_operation.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/04 01:31:24 by rthammat          #+#    #+#             */
+/*   Updated: 2022/08/04 01:33:28 by rthammat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	stack_a_operation(t_swap *stack, int index)
@@ -28,7 +40,7 @@ void	stack_b_operation(t_swap *stack, int index, int largest)
 {
 	int	above;
 	int	below;
-	
+
 	above = cal_above_b(stack, largest);
 	below = cal_below_b(stack, largest);
 	if (above == -1 && below == -1)
@@ -51,7 +63,7 @@ void	send_to_b(t_swap *stack, int chunk)
 {
 	static int	i = 0;
 	static int	start = 0;
-	int	top;
+	int			top;
 
 	stack->len_ch = stack->len_s / chunk;
 	stack->chunk = chunk;
@@ -73,23 +85,21 @@ void	send_to_b(t_swap *stack, int chunk)
 void	send_to_a(t_swap *stack, int chunk)
 {
 	static int	i = 0;
-	int	floor;
+	int			floor;
 
 	if (i == 0)
 		i = stack->len_s - 1;
-	if (stack->len_b == stack->len_s % chunk) ///////////////mo
+	if (stack->len_b == stack->len_s % chunk)
 	{
 		i = (stack->len_s % chunk) - 1;
 		floor = 0;
-	}/////////////////////////////////////mo
-	else //////////////////////mo
+	}
+	else
 		floor = (i - stack->len_ch) + 1;
 	if (stack->len_b == 0)
 		return ;
 	while (i >= floor)
 	{
-		//printf("floor is %i\n", floor);
-		//printf("i is %i\n", i);
 		stack_b_operation(stack, floor, stack->s[i]);
 		--i;
 	}

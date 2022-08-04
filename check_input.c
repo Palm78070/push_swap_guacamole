@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 15:27:50 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/03 19:17:53 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:05:23 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,15 @@ static void	insert_num(t_swap *stack, int n)
 
 	stack->len_a += 1;
 	i = -1;
-	//if (stack->a != NULL)//////////////////mo
-		tmp = stack->a;
-	//else
-	//	tmp = NULL;/////////////////mo
-	//stack->a = (int *)malloc(stack->len_a * sizeof(int));
-	stack->a = (int *)malloc((stack->len_a + 1) * sizeof(int)); ////add 1 more
+	tmp = stack->a;
+	stack->a = (int *)malloc((stack->len_a + 1) * sizeof(int));
 	if (!stack->a)
 	{
 		if (tmp)
 			free(tmp);
 		return ;
 	}
-	stack->a[stack->len_a] = 0; ///////mo
+	stack->a[stack->len_a] = 0;
 	while (++i < stack->len_a - 1)
 		stack->a[i] = tmp[i];
 	stack->a[i] = n;
@@ -76,7 +72,7 @@ static void	insert_num(t_swap *stack, int n)
 
 static int	check_and_insert(t_swap *stack, char **s)
 {
-	int	i;
+	int			i;
 	long long	n;
 
 	i = -1;
@@ -100,14 +96,19 @@ static int	check_and_insert(t_swap *stack, char **s)
 int	*format_input(t_swap *stack, char **argv)
 {
 	char	**s;
-	int	i;
+	int		i;
 
 	i = 0;
-	s = NULL;
 	while (argv[++i])
 	{
 		s = ft_split(argv[i], ' ');
-		if (!check_str_isnum(stack, s) || !check_and_insert(stack, s))
+		if (!s[0])
+		{
+			free(stack->a);
+			free_double(s);
+			return (NULL);
+		}
+		if (!s[0] || !check_str_isnum(stack, s) || !check_and_insert(stack, s))
 			return (NULL);
 	}
 	i = -1;
@@ -116,17 +117,7 @@ int	*format_input(t_swap *stack, char **argv)
 		if (!check_dup(stack, i, stack->a[i]))
 			return (NULL);
 	}
-	if (stack->a != NULL)
-	{
-		stack->len_s = stack->len_a;
-		stack->mid_sort = set_mid(stack->len_s);
-		stack->b = (int *)malloc(stack->len_a * sizeof(int));
-		if (!stack->b) ///////////////////mo
-		{
-			if (stack->a)
-				free(stack->a);
-			return (NULL);
-		} //////////////////////////////////mo
-	}
+	stack->len_s = stack->len_a;
+	stack->mid_sort = set_mid(stack->len_s);
 	return (stack->a);
 }
