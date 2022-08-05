@@ -6,7 +6,7 @@ LIB_I = ./libft/
 
 CFLAGS = -Wall -Werror -Wextra 
 
-SRCS = main.c \
+SRCS = push_swap.c \
 	check_input.c \
 	stack_utils.c \
 	above_or_below.c \
