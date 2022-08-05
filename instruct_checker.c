@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:32:46 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/01 20:16:33 by rath             ###   ########.fr       */
+/*   Updated: 2022/08/05 17:11:51 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,15 @@ void	swap2(t_swap *stack, char c)
 	int	top;
 	int	*stack2;
 
+	if (c == '2')
+	{
+		swap2(stack, 'a');
+		swap2(stack, 'b');
+		return ;
+	}
 	stack2 = choose_stack(stack, &top, c);
+	if (top <= 0)
+		return ;
 	before_top = top - 1;
 	tmp = stack2[top];
 	stack2[top] = stack2[before_top];
@@ -33,7 +41,15 @@ void	rotate2(t_swap *stack, char c)
 	int	top;
 	int	*stack2;
 
+	if (c == '2')
+	{
+		rotate2(stack, 'a');
+		rotate2(stack, 'b');
+		return ;
+	}
 	stack2 = choose_stack(stack, &top, c);
+	if (top <= 0)
+		return ;
 	tmp = stack2[top];
 	while (top > 0)
 	{
@@ -51,8 +67,16 @@ void	rev_rotate2(t_swap *stack, char c)
 	int	i;
 	int	*stack2;
 
+	if (c == '2')
+	{
+		rev_rotate2(stack, 'a');
+		rev_rotate2(stack, 'b');
+		return ;
+	}
 	i = -1;
 	stack2 = choose_stack(stack, &top, c);
+	if (top <= 0)
+		return ;
 	tmp = stack2[0];
 	while (++i < top)
 		stack2[i] = stack2[i + 1];

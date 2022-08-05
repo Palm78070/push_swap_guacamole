@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 00:11:58 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/04 00:40:54 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:15:00 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void		pb2(t_swap *stack);
 
 //checker_utils => 2
 int			match_str(char *s, char *str);
-void		use_instruct(t_swap *stack, char *s);
+int			use_instruct(t_swap *stack, char *s);
 
 //sort_small => 4
 void		sort_small(t_swap *stack);

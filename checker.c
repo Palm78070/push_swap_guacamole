@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:15:12 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/04 01:27:58 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:36:33 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,20 @@ static void	stack_init(t_swap *stack)
 	stack->chunk = 0;
 }
 
-void	check_input(t_swap *stack)
+static void	check_input(t_swap *stack)
 {
 	char	*s;
 
 	s = get_next_line(STDIN_FILENO);
 	while (s != NULL)
 	{
-		use_instruct(stack, s);
+		if (!use_instruct(stack, s))
+		{
+			ft_putstr_fd("Error\n", STDERR_FILENO);
+			free(s);
+			return ;
+		}
+		free(s);
 		s = get_next_line(STDIN_FILENO);
 	}
 	if (stack_is_sort(stack->a, stack->len_a))
