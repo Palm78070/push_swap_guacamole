@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:15:12 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/05 17:36:33 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/05 18:32:44 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ int	main(int argc, char **argv)
 	stack = (t_swap *)malloc(sizeof(t_swap));
 	stack_init(stack);
 	if (argc == 1)
+	{
+		free_all(stack);
 		exit(1);
+	}
 	stack->a = format_input(stack, argv);
 	stack->b = (int *)malloc(stack->len_a * sizeof(int));
 	if (stack->a == NULL || stack->b == NULL)
