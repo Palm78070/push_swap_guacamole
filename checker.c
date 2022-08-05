@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 01:15:12 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/05 18:32:44 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/05 18:58:39 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static void	stack_init(t_swap *stack)
 	stack->mid_stack = 0;
 	stack->above_i = 0;
 	stack->below_i = 0;
-	stack->instruct = 0;
 	stack->chunk = 0;
 }
 

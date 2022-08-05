@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 00:11:58 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/04 20:15:00 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/05 18:55:49 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct p_swap
 	int	mid_stack;
 	int	above_i;
 	int	below_i;
-	int	instruct;
 	int	chunk;
 }	t_swap;
 

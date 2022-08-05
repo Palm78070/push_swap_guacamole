@@ -6,7 +6,7 @@
 /*   By: rthammat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:32:46 by rthammat          #+#    #+#             */
-/*   Updated: 2022/08/03 19:04:02 by rthammat         ###   ########.fr       */
+/*   Updated: 2022/08/05 18:57:54 by rthammat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	swap(t_swap *stack, char c)
 	tmp = stack2[top];
 	stack2[top] = stack2[before_top];
 	stack2[before_top] = tmp;
-	stack->instruct += 1;
 }
 
 void	rotate(t_swap *stack, char c)
@@ -49,7 +48,6 @@ void	rotate(t_swap *stack, char c)
 		--top;
 	}
 	stack2[0] = tmp;
-	stack->instruct += 1;
 }
 
 void	rev_rotate(t_swap *stack, char c)
@@ -69,7 +67,6 @@ void	rev_rotate(t_swap *stack, char c)
 	while (++i < top)
 		stack2[i] = stack2[i + 1];
 	stack2[top] = tmp;
-	stack->instruct += 1;
 }
 
 void	pa(t_swap *stack)
@@ -87,7 +84,6 @@ void	pa(t_swap *stack)
 	stack_r = stack->a;
 	stack_r[top_r] = stack_p[top_p];
 	ft_putstr_fd("pa\n", 1);
-	stack->instruct += 1;
 }
 
 void	pb(t_swap *stack)
@@ -105,5 +101,4 @@ void	pb(t_swap *stack)
 	stack_r = stack->b;
 	stack_r[top_r] = stack_p[top_p];
 	ft_putstr_fd("pb\n", 1);
-	stack->instruct += 1;
 }
